@@ -1,15 +1,5 @@
-pipeline {
-  agent any
-  options {
-    ansiColor('xterm')
-  }
-  stages {
-    stage('Download dependencies') {
-      steps {
-        sh '''go mod init dispatch
-        go get
-        go build'''
-      }
-    }
-  }
-}
+@Library('TRN-jenkins-shared-library') _
+
+env.COMPONENT="dispatch"
+env.APP_TYPE="golang"
+golang()
