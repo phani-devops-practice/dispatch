@@ -6,8 +6,9 @@ pipeline {
   stages {
     stage('Download dependencies') {
       steps {
-        sh '''ls -ltr
-        npm install'''
+        sh '''go mod init dispatch
+        go get
+        go build'''
       }
     }
   }
